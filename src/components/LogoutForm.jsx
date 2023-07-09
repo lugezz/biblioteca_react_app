@@ -10,7 +10,7 @@ const LogoutForm = () => {
     setUserIsLogged(false)
   }
 
-  respLogout = logout()
+  const respLogout = logout()
 
   if (respLogout.status != 'success') {
     alert("Error al cerrar sesión, intente nuevamente.")

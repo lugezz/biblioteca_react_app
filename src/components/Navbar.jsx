@@ -1,18 +1,20 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Link } from "react-router-dom";
 import { ImBooks } from "react-icons/im";
 import { HiOutlineMenuAlt3, HiOutlineX } from "react-icons/hi";
 
-const username = localStorage.getItem('username')
-
 export const Navbar = () => {
+    let [userIsLogged, setUserIsLogged] = useState(false)
+    if (localStorage.getItem('username')) {
+        setUserIsLogged(true)
+    }
 
     let Links = [
        {name: 'Home', link:"/", key: 'home'},
        {name: 'Libros', link:"/book", key: 'libros'}
     ]
 
-    if (username) {
+    if (userIsLogged) {
         Links.push({name: 'Cerrar sesión', link:"/logout", key: 'logout'})
         Links.push({name: 'Libros prestados', link:"/book/orders", key: 'pedidos'})
     } else {
@@ -20,6 +22,7 @@ export const Navbar = () => {
     }
 
     let [open, setOpen] = useState (false);
+
     return (
         <div className='shadow-md w-full top-0 left-0 fixed z-[100]'>
             <div className='md:px-10 py-3 px-7 md:flex justify-between items-center bg-white'>
