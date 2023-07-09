@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { get } from "../../utils/httpClient.js"
+import { get } from "../../utils/httpClient"
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { HiArrowCircleLeft, HiPencilAlt, HiTrash } from "react-icons/hi";

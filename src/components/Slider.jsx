@@ -1,4 +1,4 @@
-import {get} from "../../utils/httpClient.js"
+import {get} from "../../utils/httpClient"
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useState, useEffect } from "react"
