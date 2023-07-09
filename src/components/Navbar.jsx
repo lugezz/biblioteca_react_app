@@ -5,7 +5,8 @@ import { HiOutlineMenuAlt3, HiOutlineX } from "react-icons/hi";
 
 export const Navbar = () => {
     let [userIsLogged, setUserIsLogged] = useState(false)
-    if (localStorage.getItem('username')) {
+    const username = localStorage.getItem('username')
+    if (username) {
         setUserIsLogged(true)
     }
 
