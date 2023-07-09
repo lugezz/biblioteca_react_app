@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { logout } from '../../utils/httpClient'
 import { useNavigate } from 'react-router-dom'
 
 const LogoutForm = () => {
   const navigate = useNavigate()
 
-  let [userIsLogged, setUserIsLogged] = React.useState(true)
+  let [userIsLogged, setUserIsLogged] = useState(true)
   if (!localStorage.getItem('username')) {
     setUserIsLogged(false)
   }

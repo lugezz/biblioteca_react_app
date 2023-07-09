@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Route, useNavigate } from "react-router-dom";
 
 const ProtectedRoute = (props) => {
@@ -16,11 +16,11 @@ const ProtectedRoute = (props) => {
             checkUser();
         }, [isLoggedIn]);
     return (
-        <React.Fragment>
+        <Fragment>
             {
                 isLoggedIn ? props.children : null
             }
-        </React.Fragment>
+        </Fragment>
     );
 }
 
