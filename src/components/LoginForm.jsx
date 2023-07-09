@@ -14,8 +14,7 @@ const handleLogin = async (e) => {
   if (result.status != 'success') {
     alert("Error al iniciar sesión, intente nuevamente.")
     return
-  }
-
+  } 
   return result
 }
 
