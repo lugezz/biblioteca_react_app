@@ -19,7 +19,7 @@ const handleSignup = async (e) => {
     password.value,
     fullName.value,
     address.value,
-    "/#/book")
+    "/book")
 
   if (result.status != 'success') {
     alert("Error al realizar el registro, intente nuevamente.")
@@ -33,7 +33,7 @@ const handleSignup = async (e) => {
 const SignupForm = () => {
     // Enviar a página principal si está logueado
     if (localStorage.getItem('username')) {
-      window.location.href = "/#/book"
+      window.location.href = "/book"
     }
 
     return (

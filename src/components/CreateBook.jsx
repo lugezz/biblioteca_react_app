@@ -27,7 +27,7 @@ const CreateBook = () =>{
         });
         const thisBookId = thisBook.data.data.book.id
         
-        navigate("/#/book/"+thisBookId);
+        navigate("/book/"+thisBookId);
       };
 
       useEffect(()=>{},[])

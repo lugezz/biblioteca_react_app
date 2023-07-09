@@ -17,7 +17,7 @@ const DeleteBook = () =>{
     const deleteBook = async (e) => {
         e.preventDefault();
         await axios.delete(url+bookId);
-        navigate("/#/book");
+        navigate("/book");
       };
 
       useEffect(()=>{

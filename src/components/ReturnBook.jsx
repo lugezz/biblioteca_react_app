@@ -12,7 +12,7 @@ const ReturnBook = () => {
     if (error) {
       return <div>Ocurrió un error: {error.message}</div>;
     } else {
-      window.location.href = "/#/book/orders";
+      window.location.href = "/book/orders";
     }
   };
 

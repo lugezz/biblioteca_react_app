@@ -23,7 +23,7 @@ const handleLogin = async (e) => {
 const LoginForm = () => {
     // Enviar a página principal si está logueado
     if (localStorage.getItem('username')) {
-      window.location.href = "/#/book"
+      window.location.href = "/book"
     }
 
     return (

@@ -27,7 +27,7 @@ const EditBook = () =>{
           genre,
           image,
         });
-        navigate("/#/book/"+bookId);
+        navigate("/book/"+bookId);
       };
 
       useEffect(()=>{

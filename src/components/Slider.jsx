@@ -48,7 +48,7 @@ export const Slider = () => {
         <SwiperSlide key={book.id} className="mt-[4rem] sm:mt-0">
           <img src={book.image} alt={book.title}/>
           <div className="text underline-offset-8" data-swiper-parallax="-100">
-            <Link to={`/#/book/${book.id}`}><p>Ver Libro</p></Link>
+            <Link to={`/book/${book.id}`}><p>Ver Libro</p></Link>
           </div>
         </SwiperSlide>
         ))}
