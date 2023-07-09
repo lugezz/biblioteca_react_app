@@ -25,7 +25,7 @@ export const get = async (url, param = '') => {
       headers: {
         'Content-Type': 'application/json',
         'Connection': 'keep-alive',
-        'Access-Control-Allow-Origin': 'http://localhost:5173'
+        'Access-Control-Allow-Origin': '*'
       },
   })
   const data = await response.json()

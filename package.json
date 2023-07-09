@@ -1,7 +1,7 @@
 {
   "name": "books_app",
   "version": "0.0.0",
-  "homepage": "https://lugezz.github.io/neutrones-biblioteca",
+  "homepage": "https://lugezz.github.io/biblioteca_react_app",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
