@@ -52,7 +52,7 @@ export const login = async (username, password, successUrl=null) => {
       localCookie(userId, username, role)
 
       if (successUrl) {
-        window.location.href = "/#" + successUrl
+        location.href = successUrl
       }
     } else {
       console.log(response.data)
