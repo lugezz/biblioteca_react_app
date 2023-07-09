@@ -1,8 +1,7 @@
 {
   "name": "books_app",
-  "private": true,
   "version": "0.0.0",
-  "homepage": "https://rosanalopez.github.io/neutrones-biblioteca",
+  "homepage": "https://lugezz.github.io/neutrones-biblioteca",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
