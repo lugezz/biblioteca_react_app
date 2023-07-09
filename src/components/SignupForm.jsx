@@ -1,11 +1,16 @@
+import { useEffect, useState } from 'react'
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './LoginForm.css'
 import { signup } from '../../utils/httpClient'
+import { Link, useNavigate } from 'react-router-dom'
 
 
 // Inicio Sesión
 const handleSignup = async (e) => {
+  const navigate = useNavigate()
+  let [userIsLogged, setUserIsLogged] = useState(false)
+  
   e.preventDefault()
   const {username, password, password2, fullName, address} = e.target.elements
 
@@ -18,23 +23,27 @@ const handleSignup = async (e) => {
     username.value,
     password.value,
     fullName.value,
-    address.value,
-    "/book")
+    address.value)
 
   if (result.status != 'success') {
     alert("Error al realizar el registro, intente nuevamente.")
     return
+  } else {
+    setUserIsLogged(true)
   }
+
+  // Use effect y useNavigate si está logueado
+  useEffect(() => {
+    if (userIsLogged) {
+      navigate('/book')
+    }
+  }, [userIsLogged])
 
   return result
 }
 
 
 const SignupForm = () => {
-    // Enviar a página principal si está logueado
-    if (localStorage.getItem('username')) {
-      window.location.href = "/book"
-    }
 
     return (
      <div className='wrapper bg-dark d-flex align-items-center justify-content-center w-100'>   

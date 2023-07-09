@@ -68,7 +68,6 @@ export const logout = async () => {
     )
     if (response.data.status === "success") {
       deleteCookies()
-      window.location.href = "/login"
     } else {
       console.log(response.data)
     }
@@ -80,7 +79,7 @@ export const logout = async () => {
   }
 };
 
-export const signup = async (username, password, fullName=null, address=null, successUrl=null) => {
+export const signup = async (username, password, fullName=null, address=null) => {
   try {
     const axiosInstance = axios.create({
       withCredentials: true
@@ -100,10 +99,6 @@ export const signup = async (username, password, fullName=null, address=null, su
       const userId = response.data.data.user.id
 
       localCookie(userId, username, role)
-
-      if (successUrl) {
-        window.location.href = successUrl
-      }
     } else {
       console.log(response.data)
     }

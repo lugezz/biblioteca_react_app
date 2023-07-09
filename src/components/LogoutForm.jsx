@@ -1,7 +1,30 @@
+import React, { useEffect } from 'react'
 import { logout } from '../../utils/httpClient'
+import { useNavigate } from 'react-router-dom'
 
 const LogoutForm = () => {
-  logout()
+  const navigate = useNavigate()
+
+  let [userIsLogged, setUserIsLogged] = React.useState(true)
+  if (!localStorage.getItem('username')) {
+    setUserIsLogged(false)
+  }
+
+  respLogout = logout()
+
+  if (respLogout.status != 'success') {
+    alert("Error al cerrar sesión, intente nuevamente.")
+    return
+  } else {
+    setUserIsLogged(false)
+  }
+
+  // Use effect y useNavigate si está logueado
+  useEffect(() => {
+    if (userIsLogged) {
+      navigate('/login')
+    }
+  }, [userIsLogged])
   
   return null
 }

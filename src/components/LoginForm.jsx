@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './LoginForm.css'
 import { login } from '../../utils/httpClient'
@@ -7,7 +7,7 @@ import { Link, useNavigate } from 'react-router-dom'
 
 const LoginForm = () => {
   const navigate = useNavigate()
-  let [userIsLogged, setUserIsLogged] = React.useState(false)
+  let [userIsLogged, setUserIsLogged] = useState(false)
 
   // Inicio Sesión
   const handleLogin = async (e) => {
