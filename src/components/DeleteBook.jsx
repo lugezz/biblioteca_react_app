@@ -2,7 +2,7 @@ import axios from "axios"
 import {useState,useEffect} from  "react"
 import {useNavigate,useParams} from "react-router-dom"
 
-const url = "http://team5.com.ar/api/v1/libraries/book/";
+const url = "https://team5.com.ar/api/v1/libraries/book/";
 
 
 const DeleteBook = () =>{

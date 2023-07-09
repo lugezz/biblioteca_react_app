@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const API = "http://team5.com.ar/api/v1"
+const API = "https://team5.com.ar/api/v1"
 // const API = "http://localhost:3000/api/v1"
 
 const localCookie = (userId, username, role) => {
@@ -25,7 +25,7 @@ export const get = async (url, param = '') => {
       headers: {
         'Content-Type': 'application/json',
         'Connection': 'keep-alive',
-        'Access-Control-Allow-Origin': 'http://*, https://*'
+        'Access-Control-Allow-Origin': '*'
       },
   })
   const data = await response.json()

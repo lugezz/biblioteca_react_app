@@ -3,7 +3,7 @@ import "./BooksCard.css"
 import {Link} from "react-router-dom"
 import {useState,useEffect} from  "react"
 
-const url = "http://team5.com.ar/api/v1/libraries/book/";
+const url = "https://team5.com.ar/api/v1/libraries/book/";
 
 export const BorrowedBooksCard = ({book}) => {
     const [title, setTitulo] = useState("");
