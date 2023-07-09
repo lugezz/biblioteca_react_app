@@ -32,7 +32,7 @@ export const get = async (url, param = '') => {
   return data
 }
 
-export const login = async (username, password, successUrl=null) => {
+export const login = async (username, password) => {
   try {
     const axiosInstance = axios.create({
       withCredentials: true
@@ -50,10 +50,6 @@ export const login = async (username, password, successUrl=null) => {
       const userId = response.data.data.user.id
 
       localCookie(userId, username, role)
-
-      if (successUrl) {
-        window.location.href = successUrl
-      }
     } else {
       console.log(response.data)
     }
