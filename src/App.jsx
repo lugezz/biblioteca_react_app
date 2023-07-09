@@ -3,7 +3,7 @@ import { BookDetails } from "./pages/BookDetails";
 import { BooksMain } from "./pages/BooksMain";
 import { BorrowedBooks } from "./pages/BorrowedBooks";
 import BorrowBook from "./components/BorrowBook";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import CreateBook from "./components/CreateBook";
 import DeleteBook from "./components/DeleteBook";
 import EditBook from "./components/EditBook";
@@ -20,7 +20,7 @@ import './App.css'
 
 function App() {
   return (
-      <BrowserRouter>
+      <HashRouter>
         <Navbar/>
         <Routes>
           
@@ -71,7 +71,7 @@ function App() {
             </ProtectedRoute>
           }/>
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
   )
 }
 
