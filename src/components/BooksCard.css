@@ -1,0 +1,25 @@
+.booksCard{
+    list-style: none;
+    text-align: center;
+    padding: 10px;
+    background-color: #fff;
+
+}
+
+.bookImage{
+    background-color: azure;
+    height: 18em;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    
+}
+
+@media(max-width:560px){
+    .movieImage{
+width: 90%;
+height: auto;
+    } 
+}
