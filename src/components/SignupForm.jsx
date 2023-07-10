@@ -2,47 +2,47 @@ import { useEffect, useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './LoginForm.css'
 import { signup } from '../../utils/httpClient'
-import { Link, useNavigate } from 'react-router-dom'
-
-
-// Inicio Sesión
-const handleSignup = async (e) => {
-  const navigate = useNavigate()
-  let [userIsLogged, setUserIsLogged] = useState(false)
-  
-  e.preventDefault()
-  const {username, password, password2, fullName, address} = e.target.elements
-
-  if (password.value != password2.value) {
-    alert("Las contraseñas observadas no coinciden")
-    return
-  }
-
-  const result = await signup(
-    username.value,
-    password.value,
-    fullName.value,
-    address.value)
-
-  if (result.status != 'success') {
-    alert("Error al realizar el registro, intente nuevamente.")
-    return
-  } else {
-    setUserIsLogged(true)
-  }
-
-  // Use effect y useNavigate si está logueado
-  useEffect(() => {
-    if (userIsLogged) {
-      navigate('/book')
-    }
-  }, [userIsLogged])
-
-  return result
-}
+import { useNavigate } from 'react-router-dom'
 
 
 const SignupForm = () => {
+  const navigate = useNavigate()
+  let [userIsLogged, setUserIsLogged] = useState(false)
+
+  const checkLogin = () => {
+    const username = localStorage.getItem('username');
+    if (username) {
+      return navigate('/book')
+    }
+  }
+  
+  // Registro
+  const handleSignup = async (e) => {
+    e.preventDefault()
+    const {username, password, password2, fullName, address} = e.target.elements
+
+    if (password.value != password2.value) {
+      alert("Las contraseñas observadas no coinciden")
+      return
+    }
+
+    const result = await signup(
+      username.value,
+      password.value,
+      fullName.value,
+      address.value)
+
+    if (result.status != 'success') {
+      alert("Error al realizar el registro, intente nuevamente.")
+      return
+    } else {
+      setUserIsLogged(true)
+    }
+  }
+  // Use effect y useNavigate si está logueado
+  useEffect(() => {
+    checkLogin();
+  }, [userIsLogged])
 
     return (
      <div className='wrapper bg-dark d-flex align-items-center justify-content-center w-100'>   
