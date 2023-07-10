@@ -6,15 +6,18 @@ import { Link, useNavigate } from 'react-router-dom'
 
 
 const LoginForm = () => {
-  const navigate = useNavigate()
-  let [userIsLogged, setUserIsLogged] = useState(false)
+  const navigate = useNavigate();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const checkLogin = () => {
+    const username = localStorage.getItem('username');
+    if (username) {
+      return navigate('/book')
+    }
+  }
 
   // Inicio Sesión
   const handleLogin = async (e) => {
-    if (localStorage.getItem('username')) {
-      setUserIsLogged(true)
-    }
-
     e.preventDefault()
     const {username, password} = e.target.elements
     const result = await login(username.value, password.value, "/book")
@@ -23,16 +26,13 @@ const LoginForm = () => {
       alert("Error al iniciar sesión, intente nuevamente.")
       return
     } else {
-      setUserIsLogged(true)
+      setIsLoggedIn(true);
     }
   }
 
-  // Use effect y useNavigate si está logueado
   useEffect(() => {
-    if (userIsLogged) {
-      navigate('/book')
-    }
-  }, [userIsLogged])
+    checkLogin();
+    }, [isLoggedIn]);
 
   return (
     <div className='wrapper bg-dark d-flex align-items-center justify-content-center w-100'>   

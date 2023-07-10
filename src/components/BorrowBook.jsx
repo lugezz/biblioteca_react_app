@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom"
 
 const BorrowBook = () => {
@@ -7,7 +7,7 @@ const BorrowBook = () => {
   const { bookId } = useParams()
   const userId = localStorage.getItem("userId")
   const url = `https://team5.com.ar/api/v1/libraries/borrow/${bookId}`
-  let [borrowed, setBorrowed] = React.useState(false)
+  let [borrowed, setBorrowed] = useState(false)
 
   const borrowB = async (error) => {
     await axios.post(url, {userId});
@@ -15,16 +15,17 @@ const BorrowBook = () => {
       return <div>Ocurrió un error: {error.message}</div>;
     } else {
       setBorrowed(true);
+      return navigate('/book/orders')
     }
-
-    useEffect(() => {
-      if (borrowed) {
-        navigate('/book/orders')
-      }
-    }, [borrowed])
   };
 
-  borrowB();
+
+
+  useEffect(() => {
+    borrowB();
+  }, [borrowed])
+
+  
 }
 
 

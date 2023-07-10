@@ -1,27 +1,25 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { Link } from "react-router-dom";
 import { ImBooks } from "react-icons/im";
 import { HiOutlineMenuAlt3, HiOutlineX } from "react-icons/hi";
 
-export const Navbar = () => {
-    let [userIsLogged, setUserIsLogged] = useState(false)
-    const username = localStorage.getItem('username')
-    if (username) {
-        setUserIsLogged(true)
-    }
 
+export const Navbar = () => {
+    let username = localStorage.getItem('username');
+    
     let Links = [
        {name: 'Home', link:"/", key: 'home'},
        {name: 'Libros', link:"/book", key: 'libros'}
     ]
 
-    if (userIsLogged) {
+    if (username) {
         Links.push({name: 'Cerrar sesión', link:"/logout", key: 'logout'})
         Links.push({name: 'Libros prestados', link:"/book/orders", key: 'pedidos'})
     } else {
         Links.push({name: 'Iniciar sesión', link:"/login", key: 'login'})
     }
 
+    
     let [open, setOpen] = useState (false);
 
     return (

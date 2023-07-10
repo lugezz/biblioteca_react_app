@@ -21,6 +21,13 @@ import './App.css'
 function App() {
   return (
     <>
+      <Routes>
+        <Route path="/book" element={
+            <ProtectedRoute>
+              <BooksMain/>
+            </ProtectedRoute>
+          }/>
+      </Routes>
         <Navbar/>
         <Routes>
           
@@ -30,11 +37,6 @@ function App() {
           <Route path="/signup" element={<SignupForm/>}/> */
           <Route path="/admin" element={<SidebarAdmin/>}/> */
           
-          <Route path="/book" element={
-            <ProtectedRoute>
-              <BooksMain/>
-            </ProtectedRoute>
-          }/>
           <Route path="/book/:bookId" element={
             <ProtectedRoute>
               <BookDetails/>

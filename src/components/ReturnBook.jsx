@@ -15,16 +15,13 @@ const ReturnBook = () => {
       return <div>Ocurrió un error: {error.message}</div>;
     } else {
       setReturned(true);
+      return navigate('/book/orders')
     }
   };
 
   useEffect(() => {
-    if (returned) {
-      navigate('/book/orders')
-    }
+      returnB();
   }, [returned])
-
-  returnB();
 
   return null
 }
